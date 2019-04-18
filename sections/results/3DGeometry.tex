@@ -1,6 +1,14 @@
 \subsection{Generating Geometry}
 
 \subsubsection{Marching Cube Algorithm}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\linewidth]{img/resultsMarchingCube.PNG}
+  \caption{\textbf{Top Left:} Gray matter \textbf{Top Right:} White matter \textbf{Bottom Left:} Tumor \textbf{Bottom Right:} Abnormal tissue.}
+  \label{fig:resultsMarchingCube}
+\end{figure}
+
+From a far it may seem that the models are what we expect but looking at the smaller object such as the tumor and the abnormal tissue it is clear that the resolution of the models are directly correlated with the number of slices within the DICOM file.  The marching cube algorithm generates these step wise artifacts which are the depth of the each slice within the MRI.  Because we can't use smoothing techniques, the only remedy to this is to increase the number of slices.  This will increase the computational cost and time to create a model for printing.  For most use cases we think that this is okay in the long run for holographic prints.  But for regular clinical practice like in the operating room or emergency care this is not feasible.  Nevertheless we prove that it is possible to perform semi-automatic segmentation in conjunction with marching cube algorithm to develop geometry.\\
 
 \subsubsection{Marcus Method}
 
