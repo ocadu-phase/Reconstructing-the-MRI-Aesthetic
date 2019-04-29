@@ -1,0 +1,19 @@
+ \subsection{Generating Geometry}
+
+\subsubsection{Marching Cube Algorithm}
+Given a set of slices of a 3D image we can identify the vertices and edges by looking at the edges of the masks for each segmentation.  Once this is accomplished a marching cube algorithm can be used to create a 3D surface by creating triangular connections between the vertices. This is done by performing an exhaustive iterative search throughout the entire image plane\cite{lorensen1987marching}.\\  
+
+Intuitively, the algorithm fists divides the 3D region into cubes.  For each cube you compute weather an edge or a vertex lies within the cube and where it passes through the edge of the cube. If these conditions are met cube is part of the geometry.  After this is done you triangulate the surface to reduce redundancies and also to create a mesh. This is done by identifying where the object passes through the edges of the cube.  To create the isosurface you connect these junctions together and remove redundant connections.\\
+
+Smoothing can also take part here but Trevor suggested not doing so because in the medical field altering the data is not acceptable.\\
+
+Our python implementation can be found in Appendix \ref{sec:appendixPythonFunction}.
+
+\subsubsection{MRI Volume}
+An additional method to be explored is in the generating of a three dimensional volume of the brain tumor progression.  A two-step process that involves creating an image texture from DICOM files, and applying it to a simple 1x1x1 cube geometry, creating a volumetric texture \cite{voxeldata2019}, to generate an MRI volume. As a volume, we get greater aesthetic variance than with surface materials alone, but with less control of particular vertex colours than dealing with geometry.  The impact here is that segmentation of the volume becomes similar to segmentation applied to the MRI slices in traditional medical imaging analysis cases.  We estimate that as a digital hologram this would eventually provide greater flexibility in colour variation through volumetric scattering and absorption.\\
+
+To test this hypothesis, we first looked at our tool of choice for this experiment: Blender, an open source 3D creation environment.  It supports an entire beginning to end 3D pipeline, and is often used for scientific visualization \cite{garate2017voxel} \cite{kent20143d}. Using the attributes of volume rendering in Blender, an experiment for the volumetric rendering of our MRI dataset could be carried out by setting values to attributes such as emission, density, transparency, and the distance between volume depth samples \cite{volumerender2019}.
+\\
+
+
+\subsubsection{Jawa Method}

@@ -1,6 +1,37 @@
 %
 % The first command in your LaTeX source must be the \documentclass command.
 \documentclass[acmlarge,screen]{acmart}
+% --------------------------------------------------------------
+% Code Formatting
+% --------------------------------------------------------------
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+	backgroundcolor=\color{backcolour},   
+	commentstyle=\color{codegreen},
+	keywordstyle=\color{magenta},
+	numberstyle=\tiny\color{codegray},
+	stringstyle=\color{codepurple},
+	basicstyle=\footnotesize,
+	breakatwhitespace=false,         
+	breaklines=true,                 
+	captionpos=b,                    
+	keepspaces=true,                 
+	numbers=left,                    
+	numbersep=5pt,                  
+	showspaces=false,                
+	showstringspaces=false,
+	showtabs=false,                  
+	tabsize=2
+}
+
+\lstset{style=mystyle}
 
 %
 % defining the \BibTeX command - from Oren Patashnik's original BibTeX documentation.
@@ -211,41 +242,74 @@ In this research we propose a methodology that uses existing software tools to e
 % the first part of the formatted document.
 \maketitle
 
+% --------------------------------------------------------------
+% Introduction
+% --------------------------------------------------------------
 \newpage
 \section{Introduction}
 \input{sections/intro/introduction.tex}
 
+% --------------------------------------------------------------
+% Research Question
+% --------------------------------------------------------------
 \newpage
 \section{Research Questions}
 \input{sections/researchQuestion/researchQuestions.tex}
 
+% --------------------------------------------------------------
+% Lit Review
+% --------------------------------------------------------------
 \newpage
 \section{Literature Review}
 \input{sections/litReview/litReview.tex}
 
+% --------------------------------------------------------------
+% Methodology
+% --------------------------------------------------------------
 \newpage
-\section{Methods}
-\input{sections/methods/methodsOverview.tex}
-\input{sections/methods/segmentation.tex}
-\input{sections/methods/3DGeometry.tex}
-\input{sections/methods/imageStackGeneration.tex}
-\input{sections/methods/digitalHologram.tex}
+\section{Methodology}
+\input{sections/methodology/methodsOverview.tex}
+\input{sections/methodology/segmentation.tex}
+\input{sections/methodology/3DGeometry.tex}
+\input{sections/methodology/frameStackGeneration.tex}
+\input{sections/methodology/digitalHologram.tex}
 
-
+% --------------------------------------------------------------
+% Results
+% --------------------------------------------------------------
 \newpage
 \section{Results}
 \input{sections/results/results.tex}
 \input{sections/results/segmentation.tex}
 \input{sections/results/3DGeometry.tex}
-\input{sections/results/imageStackGeneration.tex}
+\input{sections/results/frameStackGeneration.tex}
 \input{sections/results/digitalHologram.tex}
 
+% --------------------------------------------------------------
+% Discussion
+% --------------------------------------------------------------
 \newpage
 \section{Discussion}
 
+% --------------------------------------------------------------
+% Conclusion and Future Work
+% --------------------------------------------------------------
 \newpage
 \section{Conclusion and Future Work}
 
+% --------------------------------------------------------------
+% Appendix
+% --------------------------------------------------------------
+\newpage
+\section{Appendix}
+\appendix
+\input{sections/appendix/pythonFunctionCode.tex}
+\input{sections/appendix/pythonMainCode.tex}
+
+
+% --------------------------------------------------------------
+% Bibliography
+% --------------------------------------------------------------
 \newpage
 \section{Bibliography}
 \bibliography{sample-base.bib}
